@@ -1,22 +1,7 @@
 require('dotenv').config();
-const express = require('express');
-const app = express();
-const port =process.env.PORT;
 
-//servir contenido en estatico
+const Server = require('./models/server');
 
-app.use(express.static('public'));
+const server = new Server();
 
-app.get ('/generic', (req, res) => {
-
-    res.sendFile(__dirname + '/public/generic.html');
-
-
-});
-
-
-app.listen(port, () => {
-
-   console.log(`ESTA ESCUCHANDO EN EL PUERTO ${port}`) 
-
-});
+server.listen();
